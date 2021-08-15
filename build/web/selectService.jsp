@@ -114,7 +114,7 @@
                 font-size: 14px;
             }
             
-            button#createExamination.btn.btn-success{
+            button#createExamination.btn.btn-success, button#btnCreate.btn.btn-success{
                 width: 100px;
                 height: 30px;
                 font-size: 14px;
@@ -145,6 +145,7 @@
                     <div class="col-sm-2">
                         <button type="button" data-toggle="modal" data-target="#my-modal-add" class="btn btn-primary" style="padding: 10px 15px 10px 15px; font-size: 13px;">Create Examination</button>
                     </div>
+                    
                 </div>
                 <fieldset>
                             <div class="">
@@ -160,6 +161,7 @@
                     <div class="modal-header">
                       <h4 class="modal-title">Package Detail</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      
                     </div>
 
                     <!-- Modal body -->
@@ -318,7 +320,7 @@
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-success" onclick="showModalOrder()">Create</button>
+                        <button type="button" id="btnCreate" class="btn btn-success" onclick="showModalOrder()">Create</button>
                     </div>
                 </div>
             </div>
@@ -732,7 +734,7 @@
                 for (var i = 0; i < itemSave.length; i++) {    
                     html += "<tr>"; 
                     html += "<td class=''>" + index + "</td>";
-                    html += "<td>" + itemSave[i].name + "</td>";
+                    html += "<td>" + itemSave[i].name.trim() + "</td>";
                     html += "<td>" + itemSave[i].price + "</td>";                    
                     html += "</tr>";
                     _totalPrice = _totalPrice + itemSave[i].price;
@@ -740,7 +742,7 @@
                 }
                 html = html + "<tr>";
                 html = html + "<td colspan ='2' style='text-align: right'><span style='color: red;'><strong>Total price:</strong></span></td>";
-                html = html + "<td>" + _totalPrice + "</td>";
+                html = html + "<td><input type='text' value="+ _totalPrice +"></td>";
                 html = html + "</tr>";
                 $('#data-group-save').html(html);
             }
@@ -750,7 +752,7 @@
                 for (var i = 0; i < itemDuplicate.length; i++) {    
                     html += "<tr>"; 
                     html += "<td class=''>" + index + "</td>";
-                    html += "<td>" + itemDuplicate[i].name + "</td>";
+                    html += "<td>" + itemDuplicate[i].name.trim() + "</td>";
                     html += "<td>" + itemDuplicate[i].price + "</td>";                    
                     html += "</tr>";
                     index = index + 1;
