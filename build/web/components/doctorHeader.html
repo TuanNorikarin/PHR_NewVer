@@ -1,0 +1,111 @@
+<body>
+
+    <div class="main-wrapper">
+        <div class="header">
+            <div class="header-left">
+                <a href="doctorIndex.jsp" class="logo">
+                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>PHR</span>
+                </a>
+                
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+
+            <ul class="nav user-menu float-right">
+
+                <li class="nav-item dropdown d-none d-sm-block">
+                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"><i class="fa fa-bell-o" id="icon"></i> <span id="number" class="badge badge-pill bg-danger float-right">0</span></a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span>Notifications</span>
+                        </div>
+                        <div id='show' class="drop-scroll">
+                            <ul class="notification-list">
+                                <li class="notification-message">
+                                    <a href="doctorCheckRequest.jsp">
+                                        <div class="media">
+                                            <div class="media-body" id="listNotification">
+
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topnav-dropdown-footer">
+                            <a href="doctorCheckRequest.jsp">View all Notifications</a>
+                        </div>
+                    </div>
+                </li>
+                <!--                <li class="nav-item dropdown d-none d-sm-block">
+                                    <a href="javascript:void(0);" id="open_msg_box" class="hasnotifications nav-link"><i class="fa fa-comment-o"></i> <span class="badge badge-pill bg-danger float-right">8</span></a>
+                                </li>-->
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="">
+                            <span class="status online"></span></span>
+                        <span id="welcomeUser"></span>                      
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="profileDoctor.jsp">My Profile</a>
+
+                        <a class="dropdown-item Logout" id="Logout" href="login.html" >Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profileDoctor.jsp">My Profile</a>
+
+                    <a class="dropdown-item Logout" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/> 
+        <script src="assets/js/moment.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-messaging.js"></script>
+        <script src="notification/notificationService.js"></script>
+        <script>
+            var url = sessionStorage.getItem("avatar");
+            
+            $('.rounded-circle').attr({
+                'src': url,
+            });
+            $(".Logout").click(function (event) {
+                sessionStorage.removeItem('key');
+                sessionStorage.removeItem('name');
+                sessionStorage.removeItem('avatar');
+                sessionStorage.removeItem('roleID');
+                sessionStorage.removeItem('password');
+                sessionStorage.removeItem('doctorID');
+                sessionStorage.removeItem('clinicID');
+                sessionStorage.removeItem('gender');
+                sessionStorage.removeItem('id');
+//                sessionStorage.setItem("key", "");
+            });
+            var token = sessionStorage.getItem("key");
+            console.log(token);
+                                                       //redirect to login when user not login
+            if (token == null) {
+                document.location.href = "login.html";
+            }
+            var doctorID = sessionStorage.getItem("doctorID");
+            var cliID = sessionStorage.getItem("clinicID");
+            console.log(cliID);
+            var user = sessionStorage.getItem("name");
+            
+            var firstName = user.split(" ");
+            var name = firstName[firstName.length - 1];
+            $("#welcomeUser").text(name);
+
+        </script>
