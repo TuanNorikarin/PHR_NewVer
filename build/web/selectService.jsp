@@ -19,11 +19,13 @@
             }.sidebar-menu li a {
                 color: black;
                 font-weight: 500;
-            }.sidebar-menu li#aTestRequest a {
+            }
+/*            .sidebar-menu li#aTestRequest a {
                 color: #009efb;
-                /*background-color: #2a9c31;*/
+                background-color: #2a9c31;
                 background-color: #e3e7e8;
-            }i.fa.fa-bars {
+            }*/
+            i.fa.fa-bars {
                 padding-top: 14px;
             }span.status.online {
                 left: 14px;
@@ -145,7 +147,6 @@
                     <div class="col-sm-2">
                         <button type="button" data-toggle="modal" data-target="#my-modal-add" class="btn btn-primary" style="padding: 10px 15px 10px 15px; font-size: 13px;">Create Examination</button>
                     </div>
-                    
                 </div>
                 <fieldset>
                             <div class="">
@@ -161,7 +162,6 @@
                     <div class="modal-header">
                       <h4 class="modal-title">Package Detail</h4>
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      
                     </div>
 
                     <!-- Modal body -->
@@ -564,7 +564,7 @@
                                             {
                                                 data: 'id',
                                                 render: function (data, type, row, meta) {
-                                                    return '<td id="actionIcon" class="text-right"><div class="form-check"><input name="checkBox" type="checkbox" class="form-check-input checkbox-item" data-id=' + row.id + ' data-name=' + row.name + ' data-price=' + row.price + ' value="' + data + '"id="exampleCheck1"></div></td>'
+                                                    return '<td id="actionIcon" class="text-right"><div class="form-check"><input name="checkBox" type="checkbox" class="form-check-input checkbox-item" data-id=' + row.id + ' data-name="' + row.name + '" data-price=' + row.price + ' value="' + data + '"id="exampleCheck1"></div></td>'
                                                 }
                                             },
                                         ],
@@ -631,7 +631,7 @@
                                 {
                                     data: 'id',
                                     render: function (data, type, row, meta) {
-                                        return '<td id="actionIcon" class="text-right"><div class="form-check"><input name="checkBox" type="checkbox" class="form-check-input checkbox-item" data-id=' + row.id + ' data-name=' + row.name + ' data-price=' + row.price + ' value="' + data + '"id="exampleCheck1"></div></td>'
+                                        return '<td id="actionIcon" class="text-right"><div class="form-check"><input name="checkBox" type="checkbox" class="form-check-input checkbox-item" data-id=' + row.id + ' data-name="' + row.name + '" data-price=' + row.price + ' value="' + data + '"id="exampleCheck1"></div></td>'
                                     }
                                 },
                             ],
@@ -734,7 +734,7 @@
                 for (var i = 0; i < itemSave.length; i++) {    
                     html += "<tr>"; 
                     html += "<td class=''>" + index + "</td>";
-                    html += "<td>" + itemSave[i].name.trim() + "</td>";
+                    html += "<td>" + itemSave[i].name + "</td>";
                     html += "<td>" + itemSave[i].price + "</td>";                    
                     html += "</tr>";
                     _totalPrice = _totalPrice + itemSave[i].price;
@@ -752,7 +752,7 @@
                 for (var i = 0; i < itemDuplicate.length; i++) {    
                     html += "<tr>"; 
                     html += "<td class=''>" + index + "</td>";
-                    html += "<td>" + itemDuplicate[i].name.trim() + "</td>";
+                    html += "<td>" + itemDuplicate[i].name + "</td>";
                     html += "<td>" + itemDuplicate[i].price + "</td>";                    
                     html += "</tr>";
                     index = index + 1;

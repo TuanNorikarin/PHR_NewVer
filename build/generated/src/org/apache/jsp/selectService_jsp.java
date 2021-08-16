@@ -1080,7 +1080,7 @@ public final class selectService_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                            {\r\n");
       out.write("                                                data: 'id',\r\n");
       out.write("                                                render: function (data, type, row, meta) {\r\n");
-      out.write("                                                    return '<td id=\"actionIcon\" class=\"text-right\"><div class=\"form-check\"><input name=\"checkBox\" type=\"checkbox\" class=\"form-check-input checkbox-item\" data-id=' + row.id + ' data-name=' + row.name + ' data-price=' + row.price + ' value=\"' + data + '\"id=\"exampleCheck1\"></div></td>'\r\n");
+      out.write("                                                    return '<td id=\"actionIcon\" class=\"text-right\"><div class=\"form-check\"><input name=\"checkBox\" type=\"checkbox\" class=\"form-check-input checkbox-item\" data-id=' + row.id + ' data-name=\"' + row.name + '\" data-price=' + row.price + ' value=\"' + data + '\"id=\"exampleCheck1\"></div></td>'\r\n");
       out.write("                                                }\r\n");
       out.write("                                            },\r\n");
       out.write("                                        ],\r\n");
@@ -1147,7 +1147,7 @@ public final class selectService_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                {\r\n");
       out.write("                                    data: 'id',\r\n");
       out.write("                                    render: function (data, type, row, meta) {\r\n");
-      out.write("                                        return '<td id=\"actionIcon\" class=\"text-right\"><div class=\"form-check\"><input name=\"checkBox\" type=\"checkbox\" class=\"form-check-input checkbox-item\" data-id=' + row.id + ' data-name=' + row.name + ' data-price=' + row.price + ' value=\"' + data + '\"id=\"exampleCheck1\"></div></td>'\r\n");
+      out.write("                                        return '<td id=\"actionIcon\" class=\"text-right\"><div class=\"form-check\"><input name=\"checkBox\" type=\"checkbox\" class=\"form-check-input checkbox-item\" data-id=' + row.id + ' data-name=\"' + row.name + '\" data-price=' + row.price + ' value=\"' + data + '\"id=\"exampleCheck1\"></div></td>'\r\n");
       out.write("                                    }\r\n");
       out.write("                                },\r\n");
       out.write("                            ],\r\n");
