@@ -34,6 +34,24 @@
             #patientTable {
                 width: 100% !important;
             }
+            
+            button.ajs-button.ajs-ok{
+                display: inline;
+            }
+            div.ajs-footer{
+                display: block;
+            }
+            div.ajs-content{
+                height: 100px;
+                font-size: 1.4em;
+                text-align: center;
+                color: #009efb;
+            }
+            div.ajs-dialog{
+                position: relative;
+                top: 70px;
+                width: 450px;
+            }
 
         </style>
     </head>
@@ -167,16 +185,15 @@
                                 if (value.phone === txtValue) {
                                     localStorage.setItem("dataPat", JSON.stringify(value));
                                     $(document).on('click', '#delete', function () {
-//                                        console.log(value);
+                                        alertify.confirm("Are you sure?", function (asc) {
+                                        if (asc) {  
                                         $.ajax({
                                             type: "DELETE",
                                             dataType: "json",
                                             contentType: "application/json; charset=utf-8",
                                             headers: {
                                             Authorization: 'Bearer ' + token},
-                                            beforeSend:function(){
-                                                return confirm("Are you sure?");
-                                             },
+                                            
                                             url: "http://14.161.47.36:8080/PHR_System-0.0.1-SNAPSHOT/accounts/account/" + value.accountId,
                                             complete: function (jqXHR) {
                                                 if (jqXHR.status === 200) {
@@ -184,6 +201,11 @@
                                                 }
                                             }
                                             
+                                        });
+                                        
+                                        } else {
+                                            alertify.error("You've clicked cancel");
+                                        }
                                         });
 
                                     });
