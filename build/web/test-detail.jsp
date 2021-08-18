@@ -78,6 +78,24 @@
                 margin-bottom: 10px;
                 z-index: 10;
             }
+            button.ajs-button.ajs-ok{
+                display: inline;
+            }
+            
+            div.ajs-footer{
+                display: block;
+            }
+            div.ajs-content{
+                height: 100px;
+                font-size: 1.4em;
+                text-align: center;
+                color: #009efb;
+            }
+            div.ajs-dialog{
+                position: relative;
+                top: 70px;
+                width: 450px;
+            }
            
         </style>
     </head>
@@ -121,7 +139,7 @@
                                     <td id="name"></td>
                                     <td id="male"></td>
                                     <td id="female"></td>
-                                    <td id="price"></td>
+                                    <td ></td>
                                     <td id="delete"></td>
                                 </tr>
                             </tbody>
@@ -447,25 +465,25 @@
                     }
                 })
                 $('#testPackageTable tbody').on('click', 'button', function () {
-
                     var tr = $(this).closest("tr");
                     var rowindex = tr.index();
                     table = document.getElementById("testPackageTable");
                     tr = table.getElementsByTagName("tr");
                     td = tr[rowindex + 1].getElementsByTagName("td")[0];
                     txtValue = td.textContent;
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i].name === txtValue) {
-
+                    
+                    alertify.confirm("Are you sure you want to delete?", function (asc) {
+                    if (asc) {
+                    
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].name === txtValue) {
                             $.ajax({
                                 type: "DELETE",
                                 dataType: "json",
                                 contentType: "application/json; charset=utf-8",
                                 headers: {
                                     Authorization: 'Bearer ' + token},
-                                beforeSend:function(){
-                                        return confirm("Are you sure?");
-                                     },
+                                
                                 url: "http://14.161.47.36:8080/PHR_System-0.0.1-SNAPSHOT/package-tests/package-test/" + dataPackage.id + "/" + data[i].id,
                                 complete: function (jqXHR) {
 
@@ -473,8 +491,14 @@
 
                                 }
                             });
-                        }
+                            }
+                         }   
+
+                    } else {
+                        alertify.error("You've clicked cancel");
                     }
+                    });
+                    
                 });  
             },   
             error: function (jqXHR, textStatus, errorThrown) {
