@@ -652,7 +652,7 @@
         function showModalOrder(){
             var description = $('.clss-description-area').val();         
             if (description === null || description === "") {
-                alert('Please entering description!')
+                alertify.alert('Please input description for this examination!');
             }
             else {
                  $("#my-modal-order").modal("show");
@@ -742,7 +742,8 @@
                 }
                 html = html + "<tr>";
                 html = html + "<td colspan ='2' style='text-align: right'><span style='color: red;'><strong>Total price:</strong></span></td>";
-                html = html + "<td><input type='text' value="+ _totalPrice +"></td>";
+//                html = html + "<td><input type='text' value="+ _totalPrice +"></td>";
+                html = html + "<td>" + _totalPrice + "</td>";
                 html = html + "</tr>";
                 $('#data-group-save').html(html);
             }
@@ -800,9 +801,11 @@
                                     alertify.alert('Create Examination Successfully!');
                                      setTimeout(function(){
                                          window.location.href = "receptionistPatients.jsp";
-                                 },1700);
+                                 },1500);
                                 }
                             }});
+                        }else if(jqXHR.status === 409){
+                            alertify.alert('Please choose test services first!!');
                         }
                     }});
             });

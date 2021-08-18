@@ -75,7 +75,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input  id='inputPassword' class="form-control" id="password" name="password" type="password" onkeyup='check()'>
+                                    <input  id='inputPassword' class="form-control" name="password" type="password" onkeyup='check()'>
                                     <span id='messagePassword'/></span>
                                 </div>
                             </div>

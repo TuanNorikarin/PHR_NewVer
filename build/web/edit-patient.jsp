@@ -261,6 +261,15 @@
                                                     $("#inputPhone").val(phone);
                                                     var image = data.image;
                                                     $('#img').attr('src', image);
+                                                    var height = data.height;
+                                                    var weight = data.weight;
+                                                    var eyesight = data.eyesight;
+                                                    var bloodType = data.bloodType;
+                                                    if(bloodType === null){
+                                                        bloodType === "";
+                                                    }
+                                                    
+                                                    
 //                                                  var avatar = $("input[name='avatar']").val();
                                                     var status = data.status;
                                                     if (status === "enable") {
@@ -476,10 +485,10 @@
                                                                         "password": password,
                                                                         "medicalNote": "",
                                                                         "accountId": idAccountUpdate,
-                                                                        "bloodType": "",
-                                                                        "eyesight": 0,
-                                                                        "height": 0,
-                                                                        "weight": 0,
+                                                                        "bloodType": bloodType,
+                                                                        "eyesight": eyesight,
+                                                                        "height": height,
+                                                                        "weight": weight,
                                                                         
 //                                                                        "token": ""
                                                                     }),

@@ -297,12 +297,12 @@
                                                         document.getElementById('messagePhone').style.color = 'red';
                                                         document.getElementById('messagePhone').innerHTML = 'Incorrect phone number format ✘';
                                                     } else {
-                                                        function uploadImage() {
-                                                             {
-                                                                ajax("https://firebasestorage.googleapis.com/v0/b/upload-image-45245.appspot.com/o/1627884556038-user.jpg?alt=media&token=22b2529d-120e-4625-a7d1-fc680918acf5");
-                                                            }
-                                                        }
-                                                        function ajax(url) {
+//                                                        function uploadImage() {
+//                                                             {
+//                                                                ajax("https://firebasestorage.googleapis.com/v0/b/upload-image-45245.appspot.com/o/1627884556038-user.jpg?alt=media&token=22b2529d-120e-4625-a7d1-fc680918acf5");
+//                                                            }
+//                                                        }
+//                                                        function ajax(url) {
                                                             return  $.ajax({
                                                                 type: "POST",
                                                                 dataType: "json",
@@ -312,12 +312,12 @@
                                                                 data: JSON.stringify({
                                                                     "address": address,
                                                                     "name": clinicName,
-                                                                    "coordinate": "",
-                                                                    "image": url,
+                                                                    
+                                                                    "image": null,
                                                                     "phone": phone,
                                                                     "status": status,
                                                                     "district": district,
-                                                                    "clinicGroupId": 1,
+                                                                    
                                                                     "description": description
                                                                 }),
                                                                 url: "http://14.161.47.36:8080/PHR_System-0.0.1-SNAPSHOT/clinics/clinic",
@@ -333,8 +333,8 @@
                                                                     }
                                                                 }
                                                             });
-                                                        }
-                                                        uploadImage();
+//                                                        }
+//                                                        uploadImage();
                                                     }
                                                 });
                                             });

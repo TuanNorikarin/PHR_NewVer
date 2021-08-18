@@ -374,12 +374,12 @@
                                                         } else if (count === 1) {
 
                                                         } else {
-                                                            function uploadImage() {
-                                                                 {
-                                                                    ajax("https://firebasestorage.googleapis.com/v0/b/upload-image-45245.appspot.com/o/1627884556038-user.jpg?alt=media&token=22b2529d-120e-4625-a7d1-fc680918acf5");
-                                                                }
-                                                            }
-                                                            function ajax(url) {
+//                                                            function uploadImage() {
+//                                                                 {
+//                                                                    ajax("https://firebasestorage.googleapis.com/v0/b/upload-image-45245.appspot.com/o/1627884556038-user.jpg?alt=media&token=22b2529d-120e-4625-a7d1-fc680918acf5");
+//                                                                }
+//                                                            }
+//                                                            function ajax(url) {
                                                                 return   $.ajax({
                                                                     type: "POST",
                                                                     dataType: "json",
@@ -391,7 +391,7 @@
                                                                         "gender": gender,
                                                                         "dob": dob,
                                                                         "name": lastName + " " + firstName,
-                                                                        "image": url,
+                                                                        "image": null,
                                                                         "password": password,
                                                                         "phone": phone,
 
@@ -407,8 +407,8 @@
                                                                         }
                                                                     }
                                                                 });
-                                                            }
-                                                            uploadImage();
+//                                                            }
+//                                                            uploadImage();
                                                         }
                                                     });
                                                 });

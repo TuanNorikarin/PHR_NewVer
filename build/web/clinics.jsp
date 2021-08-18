@@ -210,6 +210,7 @@
                                                         
                                                         
                                                         count = count / value.length;
+                                                        
                                                         if (count < 0.5) {
                                                             x = x + '<div id="clinicClick" class="col-sm-6 col-md-6 col-lg-4 pagination__item"><div class="blog grid-blog"><div class="blog-image"><a onclick="getClinic('+data[index].id+')" href="clinic-details.jsp"><img class="img-fluid" src=" '
                                                                     + data[index].image + '" alt=""></a></div><div class="blog-content"><h3 class="blog-title"><a href="clinic-details.jsp">\n\ '
@@ -324,7 +325,18 @@
                                                             
                                                             },
                                                             error: function (jqXHR, textStatus, errorThrown) {
-                                                                if(jqXHR.status === 404){
+                                                                if(jqXHR.status === 404 && data[index].image === null){
+                                                                    x = x + '<div id="clinicClick" class="col-sm-6 col-md-6 col-lg-4 pagination__item"><div class="blog grid-blog"><div class="blog-image"><a onclick="getClinic('+data[index].id+')" href="clinic-details.jsp"><img class="img-fluid" src=" '
+                                                                    + "assets/img/user.jpg" + '" alt=""></a></div><div class="blog-content"><h3 class="blog-title"><a href="clinic-details.jsp">\n\ '
+                                                                    + data[index].name + '</a></h3><p>\n\ '
+                                                                    + data[index].address + '</p> '
+                                                                    + 'Quận ' + data[index].district
+                                                                    + '<a onclick="getClinic('+data[index].id+')" href="edit-clinic.jsp" class="read-more EditClinic"><i class="fa fa-long-arrow-right"></i> Edit</a><div class="blog-info clearfix"><div class="post-left"><ul><li><i class="fa fa-check-circle"></i> <span class=' + index + '>'
+                                                                    + data[index].status + '</span><span class="clinicId">' + ' ' + data[index].id + '</span></li></ul></div><div class="post-right"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></div></div></div></div></div>';
+                                                        
+                                                                    
+                                                                }
+                                                                else if(jqXHR.status === 404){
                                                                     x = x + '<div id="clinicClick" class="col-sm-6 col-md-6 col-lg-4 pagination__item"><div class="blog grid-blog"><div class="blog-image"><a onclick="getClinic('+data[index].id+')" href="clinic-details.jsp"><img class="img-fluid" src=" '
                                                                     + data[index].image + '" alt=""></a></div><div class="blog-content"><h3 class="blog-title"><a href="clinic-details.jsp">\n\ '
                                                                     + data[index].name + '</a></h3><p>\n\ '
@@ -341,26 +353,13 @@
 
                                                         })
                                                         
-//                                                    console.log(data);
-                                                    
-//                                                    $(document).on('click', '[id^="clinicClick"]', function () {
-//
-//                                                        var values = $(this).context.textContent.split(" ");
-//
-//                                                        var id = values[values.length - 1];
-//                                                        if (item.id === id) {
-//                                                            
-//                                                            
-//                                                        }
-//                                                    });
+
                                                 }})
 
 
                                             inActive = data;
                                         }
                                         )
-
-
 
                                     },
                                     error: function (jqXHR, textStatus, errorThrown) {

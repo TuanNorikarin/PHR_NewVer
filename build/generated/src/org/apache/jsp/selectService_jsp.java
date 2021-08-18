@@ -69,11 +69,13 @@ public final class selectService_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("            }.sidebar-menu li a {\r\n");
       out.write("                color: black;\r\n");
       out.write("                font-weight: 500;\r\n");
-      out.write("            }.sidebar-menu li#aTestRequest a {\r\n");
+      out.write("            }\r\n");
+      out.write("/*            .sidebar-menu li#aTestRequest a {\r\n");
       out.write("                color: #009efb;\r\n");
-      out.write("                /*background-color: #2a9c31;*/\r\n");
+      out.write("                background-color: #2a9c31;\r\n");
       out.write("                background-color: #e3e7e8;\r\n");
-      out.write("            }i.fa.fa-bars {\r\n");
+      out.write("            }*/\r\n");
+      out.write("            i.fa.fa-bars {\r\n");
       out.write("                padding-top: 14px;\r\n");
       out.write("            }span.status.online {\r\n");
       out.write("                left: 14px;\r\n");
@@ -164,7 +166,7 @@ public final class selectService_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                font-size: 14px;\r\n");
       out.write("            }\r\n");
       out.write("            \r\n");
-      out.write("            button#createExamination.btn.btn-success{\r\n");
+      out.write("            button#createExamination.btn.btn-success, button#btnCreate.btn.btn-success{\r\n");
       out.write("                width: 100px;\r\n");
       out.write("                height: 30px;\r\n");
       out.write("                font-size: 14px;\r\n");
@@ -621,7 +623,7 @@ public final class selectService_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                    <!-- Modal footer -->\r\n");
       out.write("                    <div class=\"modal-footer\">\r\n");
       out.write("                        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Cancel</button>\r\n");
-      out.write("                        <button type=\"button\" class=\"btn btn-success\" onclick=\"showModalOrder()\">Create</button>\r\n");
+      out.write("                        <button type=\"button\" id=\"btnCreate\" class=\"btn btn-success\" onclick=\"showModalOrder()\">Create</button>\r\n");
       out.write("                    </div>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
@@ -1168,7 +1170,7 @@ public final class selectService_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("        function showModalOrder(){\r\n");
       out.write("            var description = $('.clss-description-area').val();         \r\n");
       out.write("            if (description === null || description === \"\") {\r\n");
-      out.write("                alert('Please entering description!')\r\n");
+      out.write("                alertify.alert('Please input description for this examination!');\r\n");
       out.write("            }\r\n");
       out.write("            else {\r\n");
       out.write("                 $(\"#my-modal-order\").modal(\"show\");\r\n");
@@ -1258,7 +1260,7 @@ public final class selectService_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                }\r\n");
       out.write("                html = html + \"<tr>\";\r\n");
       out.write("                html = html + \"<td colspan ='2' style='text-align: right'><span style='color: red;'><strong>Total price:</strong></span></td>\";\r\n");
-      out.write("                html = html + \"<td>\" + _totalPrice + \"</td>\";\r\n");
+      out.write("                html = html + \"<td><input type='text' value=\"+ _totalPrice +\"></td>\";\r\n");
       out.write("                html = html + \"</tr>\";\r\n");
       out.write("                $('#data-group-save').html(html);\r\n");
       out.write("            }\r\n");
@@ -1316,9 +1318,11 @@ public final class selectService_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                                    alertify.alert('Create Examination Successfully!');\r\n");
       out.write("                                     setTimeout(function(){\r\n");
       out.write("                                         window.location.href = \"receptionistPatients.jsp\";\r\n");
-      out.write("                                 },1700);\r\n");
+      out.write("                                 },1500);\r\n");
       out.write("                                }\r\n");
       out.write("                            }});\r\n");
+      out.write("                        }else if(jqXHR.status === 409){\r\n");
+      out.write("                            alertify.alert('Please choose test services first!!');\r\n");
       out.write("                        }\r\n");
       out.write("                    }});\r\n");
       out.write("            });\r\n");
