@@ -154,9 +154,10 @@
                                     items_per_page: 6
                                 });
                                 for (var i = 0; i < inActive.length; i++) {
-                                    if (inActive[i].status === "Inactive") {
+                                    if (inActive[i].status === "disable" || inActive[i].status === "disbale") {
                                         $("." + i).css("color", "gray");
                                         $("." + i).css("font-size", "14");
+                                        $("." + i).css('font-style', 'italic');
                                         $("." + i).css("font-weight", "bold");
                                     } else {
                                         $("." + i).css("color", "green");

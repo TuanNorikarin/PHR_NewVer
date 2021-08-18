@@ -128,26 +128,7 @@
             </form>
             <div id="pagination-1" class="row doctor-grid">
 
-                <!--                <div class="col-md-4 col-sm-4 col-lg-3 pagination__item">
-                                    <div class="profile-widget">
-                                        <div class="doctor-img">
-                                            <a class="avatar" href="profileDoctor.jsp"><img alt="" src="assets/img/doctor-thumb-03.jpg"></a>
-                                        </div>
-                                        <div class="dropdown profile-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="edit-doctor.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_doctor"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                            </div>
-                                        </div>
-                                        <h4 class="doctor-name text-ellipsis"><a href="profileDoctor.jsp">Tuấn Norikarin</a></h4>
-                                        <div class="doc-prof">Gynecologist</div>
-                                        <div class="user-country">
-                                            <i class="fa fa-map-marker"></i> Tân An, Long An
-                                        </div>
-                                    </div>
-                                </div> 
-                -->
+
 
             </div>
 
@@ -191,9 +172,10 @@
                             $(document).ajaxStop(function () {
                                 $("div").removeClass("loading");
                                 for (var i = 0; i < inActive.length; i++) {
-                                    if (inActive[i].status === "Inactive") {
+                                    if (inActive[i].status === "disable") {
                                         $("." + i).css("color", "gray");
                                         $("." + i).css("font-size", "14");
+                                        $("." + i).css('font-style', 'italic');
                                         $("." + i).css("font-weight", "bold");
                                     } else {
                                         $("." + i).css("color", "green");
@@ -266,18 +248,20 @@
                                                 }
                                                 });
                                             });
-//                                            console.log(item.image);
+                                            
+                                            
+//                                            console.log(item.status);
                                             if(item.image === null){
                                                  x = x + '<div id="testClick" class="col-md-4 col-sm-4 col-lg-3 pagination__item"><div class="profile-widget"><div class="doctor-img"><a id="avaDoctor" class="avatar" onclick="getDoctor('+data[index].id+')" href="profileDoctorForAdmin.jsp"><img id="avatar" alt="" src="'
                                                     + "assets/img/user.jpg" + '"></a></div><div class="dropdown profile-action"><a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a><div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" onclick="getDoctor('+data[index].id+')" href="edit-doctor.jsp"><i class="fa fa-pencil m-r-5"></i> Edit</a><a id="delete" value="' + data[index].id + '" class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_doctor"><i class="fa fa-trash-o m-r-5"></i> Delete</a></div></div><h4 class="doctor-name text-ellipsis"><a class="fullName" href="">'
-                                                    + data[index].name + '</a></h4><div class="' + index + '">'
+                                                    + data[index].name + '</a></h4><div class="' + index + ' statusDoc">'
                                                     + data[index].status + '</div><div class="user-country"><i id="colorIcon" class="fa fa-hospital-o"></i>  '
                                                     + data[index].clinicName + '</div><div class="doctorId">' + ' ' + data[index].id + '</div></div></div>'
                                             
                                             }else{
                                                 x = x + '<div id="testClick" class="col-md-4 col-sm-4 col-lg-3 pagination__item"><div class="profile-widget"><div class="doctor-img"><a id="avaDoctor" class="avatar" onclick="getDoctor('+data[index].id+')" href="profileDoctorForAdmin.jsp"><img id="avatar" alt="" src="'
                                                     + data[index].image + '"></a></div><div class="dropdown profile-action"><a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a><div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" onclick="getDoctor('+data[index].id+')" href="edit-doctor.jsp"><i class="fa fa-pencil m-r-5"></i> Edit</a><a id="delete" value="' + data[index].id + '" class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_doctor"><i class="fa fa-trash-o m-r-5"></i> Delete</a></div></div><h4 class="doctor-name text-ellipsis"><a class="fullName" href="">'
-                                                    + data[index].name + '</a></h4><div class="' + index + '">'
+                                                    + data[index].name + '</a></h4><div class="' + index + ' statusDoc">'
                                                     + data[index].status + '</div><div class="user-country"><i id="colorIcon" class="fa fa-hospital-o"></i>  '
                                                     + data[index].clinicName + '</div><div class="doctorId">' + ' ' + data[index].id + '</div></div></div>'
                                             
