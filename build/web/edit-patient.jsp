@@ -261,6 +261,9 @@
                                                     $("#inputPhone").val(phone);
                                                     var image = data.image;
                                                     $('#img').attr('src', image);
+                                                    if(data.image === null){
+                                                                $('#img').attr('src', "assets/img/user.jpg");
+                                                            } 
                                                     var height = data.height;
                                                     var weight = data.weight;
                                                     var eyesight = data.eyesight;

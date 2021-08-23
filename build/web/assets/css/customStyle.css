@@ -251,3 +251,9 @@ div.card-box.profile-header{
             .modal-backdrop{
                 background: #7f7f7f;
             }
+            
+            
+/*======================= input format ==============================*/        
+input[type=number] {
+    text-align: right;
+}

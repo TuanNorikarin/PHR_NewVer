@@ -34,6 +34,16 @@
             #indexTable {
                 width: 100% !important;
             }
+            input[type=number] {
+                text-align: right;
+            }
+            input#price.form-control.inputValue, input#priceEdit.form-control.inputValue{
+                width: 50%;
+            }
+            textarea#description.form-control, textarea#descriptionEdit.form-control{
+                height: 100px;
+            }
+            
             div.col-sm-3.col-3{
                 position: relative; 
                 left:160px;

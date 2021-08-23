@@ -358,7 +358,7 @@
                             data: JSON.stringify({
                                 "id": dataPackage.id,
                                 "name": name,
-                                "price": price,
+                                "price": 0,
                                 "description": description,
                                 "status": "enable"
                             }),

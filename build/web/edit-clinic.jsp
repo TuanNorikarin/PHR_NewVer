@@ -245,7 +245,7 @@
 //                                                        
                                                         success: function (data) { 
                                                             
-                                                    
+                                                    console.log(data);
                                                 
                                                 
                                                 var idUpdate = data.id;
@@ -277,8 +277,12 @@
 //                                                $("#clinic_active").val(data.status);
                                                 if(newImg === "ok"){
                                                     newImg = data.image;
-                                                            }
+                                                  }
                                                 $("#imgPreview").attr('src', newImg);
+                                                if(data.image === null){
+                                                      $('#imgPreview').attr('src', "assets/img/user.jpg");
+                                                  }
+                                                
                                                 var statusOld = data.status;
                                                 if (statusOld === "enable") {
                                                     $("#clinic_active").prop("checked", true);

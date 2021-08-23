@@ -223,8 +223,8 @@
                                                             contentType: false,
                                                             data: formData,
                                                             success: function (response) {
-                                                                alert("OK rồi");
-//                                                                newImg = response;
+//                                                                alert("OK rồi");
+                                                                newImg = response;
                                                             },
                                                             error: function (er) {
 //                                                                alert("Lỗiiiiiiiiiiiiii");
@@ -242,7 +242,7 @@
                                                         url: "http://14.161.47.36:8080/PHR_System-0.0.1-SNAPSHOT/doctors/doctor/" +id,
 //                                                        
                                                         success: function (data) {
-                                                            
+                                                            console.log(data);
                                                             var name = data.name;
                                                             var firstName = name.split(" ");
                                                             var lastName = name.replace(firstName[firstName.length - 1], "");
@@ -258,6 +258,10 @@
                                                                newImg = data.image;
                                                             }
                                                             $('#img').attr('src', newImg);
+                                                            if(data.image === null){
+                                                                $('#img').attr('src', "assets/img/user.jpg");
+                                                            }  
+                                                            
                                                             
                                                             $("#inputPhone").val(phone);
                                                             var dob = data.dob;
